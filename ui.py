@@ -1,6 +1,6 @@
-from AppUI import create_app
-from tamplates  import TamplateDashBuilder
-isDev=True
+# from AppUI import create_app
+# from tamplates  import TamplateDashBuilder
+# isDev=True
 
-demo_dash=create_app(TamplateDashBuilder,isDev)
+# demo_dash=create_app(TamplateDashBuilder,isDev)
 
