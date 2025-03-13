@@ -1,6 +1,6 @@
 
 from seeds import *
-from data import *
+
 from builders import *
 import gradio as gr
 from gradio_client import Client
