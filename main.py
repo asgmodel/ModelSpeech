@@ -42,6 +42,6 @@ async def redirect_to_site():
 
 from apps.ui_apps import APPS
 for uiapp,path in APPS:
-    app = gr.mount_gradio_app(app, uiapp, path=path)
+    app = gr.mount_gradio_app(app, uiapp, path="/"+path)
 
     
