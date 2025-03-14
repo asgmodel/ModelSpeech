@@ -68,8 +68,8 @@ users = [("admin", "password123"), ("user", "userpass")]
 
 
 
-from data import *
-from models import *
+from .data import *
+from .models import *
 
 import gradio as gr
 from gradio_client import Client
