@@ -1,7 +1,7 @@
-from clients import *
-from typing import List
-from models import *
-from seeds import  RequestDev
+from .clients import *
+from .typing import List
+from .models import *
+from .seeds import  RequestDev
 
 class BuilderStudioModelAiAPi:
     def __init__(self, url: str, token: str) -> None:
