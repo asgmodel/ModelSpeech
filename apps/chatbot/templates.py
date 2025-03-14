@@ -1,7 +1,8 @@
 
-from seeds import *
+from .seeds import *
+from .components import *
 
-from builders import *
+from .builders import *
 import gradio as gr
 from gradio_client import Client
 import pandas as pd
