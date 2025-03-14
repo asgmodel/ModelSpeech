@@ -1,5 +1,5 @@
 from .clients import *
-from .typing import List
+from  typing import List
 from .models import *
 from .seeds import  RequestDev
 
