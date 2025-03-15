@@ -91,7 +91,7 @@ def createchat(builder, lg="en"):
         #m_category=None
         current_language = lg
 
-        with gr.Blocks() as panel:
+        with gr.Column() as panel:
             with gr.Row():
                 with gr.Column(scale=1):
                     with gr.Accordion(LANGUAGES[current_language]["options"]):
