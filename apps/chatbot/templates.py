@@ -287,7 +287,7 @@ class TemplateSpeechStudioBuilder:
         self.msg_event = f"Creating app for language {language}"
         print(self.msg_event )
         self.data = data
-        with gr.Blocks() as service_dashboard:
+        with gr.Column() as service_dashboard:
             createchat(self)
             #print(data)
 
