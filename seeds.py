@@ -45,6 +45,7 @@ import pandas as pd
 from random import randint
 import gradio as gr
 import plotly.express as px
+from  typing import List
 
 def plot_plan_data_services():
 
