@@ -38,7 +38,7 @@ LANGUAGES = {
 }
 
 from  typing import List
-
+from .models import *
 class BuilderDataModelAi:
     def __init__(self, models: List[ModelAiCreate]):
         self.models = models
