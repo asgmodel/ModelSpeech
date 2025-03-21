@@ -156,7 +156,7 @@ class TemplateBuilderRequest:
 
 
 
-    def Create_request(self, value="string", serviceId="serv_3daa9b9b2f3a466eb15edecb415481af"):
+    def Create_request(self, value="string", serviceId="serv_3daa9b9b2f3a466eb15edecb415481af",spaceId="space_001fc819a6ae4492be877f2869a3cbd3"):
           """  Create a request and handle all possible return states, with input validation"""
 
 
@@ -175,7 +175,8 @@ class TemplateBuilderRequest:
 
           data = {
               "value": value.strip(),
-              "serviceId": serviceId.strip()
+              "serviceId": serviceId.strip(),
+              "spaceId":spaceId.strip()
                }
 
           try:
