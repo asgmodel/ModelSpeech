@@ -164,7 +164,7 @@ def createTextToSpeech(builder, lg="en"):
 
                       chat_input = gr.MultimodalTextbox(
                           interactive=True,
-                           visible=False,
+                           visible=True,
                           placeholder=LANGUAGES[current_language]["enter_message"],
                           show_label=False,
                           lines=3,
