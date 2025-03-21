@@ -173,7 +173,7 @@ class  APPException:
 
 
 
-Request_WEB=['url_redirect','url_cancel','data']
+Request_WEB=['url_redirect','url_cancel','data','lg']
 def get_web_dataurl(querys):
     ds={}
     for sw in  Request_WEB:
@@ -182,6 +182,8 @@ def get_web_dataurl(querys):
 
     return ds
 
+def  create_api(tamplate,isDev=True,inputs=[],outputs=[],exception=APPException()):
+         return  tamplate("","",isDev).createapi(data=[])
 
 
 def  create_app(tamplate,isDev=True,inputs=[],outputs=[],exception=APPException()):
@@ -198,7 +200,7 @@ def  create_app(tamplate,isDev=True,inputs=[],outputs=[],exception=APPException(
                      # اذا كنت لم تستخدم الرابط وتضيف له التوكن
                      if len(appsettingdata)==0:
                         # هذا تنشه  من  api create AuthorizationSession
-                        token_session="""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTZXNzaW9uVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKbGVIQWlPakUzTkRNNE1ERTVORGNzSW1semN5STZJbWx6YzNWbGNpSXNJbUYxWkNJNkltaDBkSEJ6T2k4dmJHOWpZV3hvYjNOME9qY3dNRE1pZlEuSjVvZjd1NURZUDAxUlpNcWpDd2NNVUVFZmNldUNzMTQ0QWMyS0wzdVVMRSIsIkFwaVVybCI6Imh0dHBzOi8vYXNnLWFwaS5ydW5hc3AubmV0L2FwaS9BdXRob3JpemF0aW9uU2Vzc2lvbi92YWxpZGF0ZSIsIldlYlRva2VuIjoiMkV0QktWU0lMcEVTSWxmbW00czZwdHBMSVdmajdRbWRnZzFWS0QybmpCTT0iLCJkYXRhIjoie1wiU3Vic2NyaXB0aW9uSWRcIjpudWxsLFwiU3BhY2VOYW1lXCI6bnVsbCxcIlNlcnZpY2VJZFwiOlwic2Vydl8zZGFhOWI5YjJmM2E0NjZlYjE1ZWRlY2I0MTU0ODFhZlwifSIsImV4cCI6MTc0Mzc5NDc0NywiaXNzIjoiaXNzdWVyIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzAwMyJ9.WlD6RC5c6NhSvkvDObSYIxld8Rg4dMQhkbjMgfh_dcM"""
+                        token_session="""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTZXNzaW9uVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKbGVIQWlPakUzTkRRNE16TTJNelFzSW1semN5STZJbWx6YzNWbGNpSXNJbUYxWkNJNkltaDBkSEJ6T2k4dmJHOWpZV3hvYjNOME9qY3dNRE1pZlEuV1k1ZGVKZlR2S0xUVE5HeGRJSVprdFFhUG5POXAycGxGTURhbkl5YzN4OCIsIkFwaVVybCI6Imh0dHBzOi8vYXNnLWFwaS5ydW5hc3AubmV0L2FwaS9BdXRob3JpemF0aW9uU2Vzc2lvbi92YWxpZGF0ZSIsIldlYlRva2VuIjoiMkV0QktWU0lMcEVTSWxmbW00czZwdHBMSVdmajdRbWRnZzFWS0QybmpCTT0iLCJkYXRhIjoie1wiU2Vzc2lvbklkXCI6XCJkMTdlZGEwMS1jNmM5LTQwMWItYjgxMi1mYjdmNDA5MDc1ZDdcIixcIlN1YnNjcmlwdGlvbklkXCI6XCJzdWJfMVF6T1RIS01RN0xhYmdSVGpFWVhqbncxXCIsXCJTZXJ2aWNlc1wiOlt7XCJJZFwiOlwic2Vydl8zZGFhOWI5YjJmM2E0NjZlYjE1ZWRlY2I0MTU0ODFhZlwiLFwiTmFtZVwiOlwic3RyaW5nXCJ9XSxcIlNwYWNlc1wiOm51bGx9IiwiZXhwIjoxNzQ0ODI2NDM0LCJpc3MiOiJpc3N1ZXIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo3MDAzIn0.Z1bOFAPG1JPpUnnJ3ck6sGDPs_xk6gGI0UK0c441SdY"""
 
                         appsettingdata['token']=token_session
                         appsettingdata['lg']='ar'
