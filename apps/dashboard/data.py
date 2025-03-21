@@ -1,0 +1,42 @@
+TRANSLATIONS = {
+    "ar": {
+        "start_date": "تاريخ البدء",
+        "end_date": "تاريخ الانتهاء",
+        "apply_btn": "تطبيق الفلتر",
+        "group_by": "تجميع البيانات بواسطة",
+        "aggregation": "طريقة التجميع",
+        "requests_by_time_title": "الطلبات حسب الوقت",
+        "errors_by_time_title": "الأخطاء حسب الوقت",
+        "requests_by_service_title": "الطلبات حسب نوع الخدمة",
+        "total_requests": "إجمالي الطلبات في الخطة الحالية",
+        "remaining_requests": "الطلبات المتبقية",
+        "none": "لا شيء",
+        "30m": "30 دقيقة",
+        "1h": "ساعة",
+        "4h": "4 ساعات",
+        "1d": "يوم",
+        "requests_by_service": "الطلبات حسب نوع الخدمة",
+        "errors_by_service": "الأخطاء حسب نوع الخدمة",
+        "PlanRequestsVisualization":"أحصائية الخطة "
+    },
+    "en": {
+        "start_date": "Start Date",
+        "end_date": "End Date",
+        "apply_btn": "Apply Filter",
+        "group_by": "Group Data By",
+        "aggregation": "Select Aggregation Method",
+        "requests_by_time_title": "Requests Over Time",
+        "errors_by_time_title": "Errors Over Time",
+        "requests_by_service_title": "Requests by Service Type Over Time",
+        "total_requests": "Total Requests in Current Plan",
+        "remaining_requests": "Remaining Requests",
+        "none": "None",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day",
+        "requests_by_service": "Requests by Service Type",
+        "errors_by_service": "Errors by Service Type",
+        "PlanRequestsVisualization": "Plan  Visualization"
+    }
+}

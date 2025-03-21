@@ -1,0 +1,78 @@
+LANGUAGES = {
+    "ar": {
+        "options": "الخيارات",
+        "category": "التصنيف",
+        "choose_category": "اختر تصنيفًا",
+        "language": "اللغة",
+        "choose_language": "اختر لغة",
+        "dialect": "اللهجة",
+        "choose_dialect": "اختر لهجة",
+        "settings": "الإعدادات",
+        "temperature": "درجة الحرارة",
+        "max_token": "أقصى عدد من الرموز",
+        "streaming": "البث",
+        "voice_output": "الإخراج الصوتي",
+        "voice_type": "نوع الصوت",
+        "choose_voice_type": "اختر نوع الصوت",
+        "model": "النموذج",
+        "choose_model": "اختر نموذجًا",
+        "enter_message": "أدخل الرسالة..."
+    },
+    "en": {
+        "options": "Options",
+        "category": "Category",
+        "choose_category": "Choose a category",
+        "language": "Language",
+        "choose_language": "Choose a language",
+        "dialect": "Dialect",
+        "choose_dialect": "Choose a dialect",
+        "settings": "Settings",
+        "temperature": "Temperature",
+        "max_token": "Max Token",
+        "streaming": "Streaming",
+        "voice_output": "Voice Output",
+        "voice_type": "Voice Type",
+        "choose_voice_type": "Choose a voice type",
+        "model": "Model",
+        "choose_model": "Choose a model",
+        "enter_message": "Enter message..."
+    }
+}
+LANGUAGESPEECH = {
+    "ar": {
+        "options": "الخيارات",
+        "category": "التصنيف",
+        "model_name": "الموديل",
+        "choose_model": "اختر موديل",
+        "choose_category": "اختر تصنيفًا",
+        "language": "اللغة",
+        "choose_language": "اختر لغة",
+        "dialect": "اللهجة",
+        "choose_dialect": "اختر لهجة",
+        "settings": "الإعدادات",
+        "temperature": "درجة الحرارة",
+        "max_token": "أقصى عدد من الرموز",
+        "streaming": "البث",
+        "output": "الإخراج  ",
+        "enter_message": "أدخل النص هنا...",
+        "convert": "تحويل   "
+    },
+    "en": {
+        "options": "Options",
+        "category": "Category",
+        "model_name": "Model Name",
+        "choose_model": "Choose a Model",
+        "choose_category": "Choose a category",
+        "language": "Language",
+        "choose_language": "Choose a language",
+        "dialect": "Dialect",
+        "choose_dialect": "Choose a dialect",
+        "settings": "Settings",
+        "temperature": "Temperature",
+        "max_token": "Max Token",
+        "streaming": "Streaming",
+        "output": "Output",
+        "enter_message": "Enter text here...",
+        "convert": "Convert"
+    }
+}

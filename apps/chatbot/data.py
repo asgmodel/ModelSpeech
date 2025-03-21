@@ -34,4 +34,3 @@ LANGUAGES = {
         "enter_message": "Enter message or upload file..."
     }
 }
-

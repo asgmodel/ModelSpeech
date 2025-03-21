@@ -1,4 +1,4 @@
-
+from .data import *
 bodyiconchat = """
     <style>
       :root {
@@ -68,8 +68,8 @@ users = [("admin", "password123"), ("user", "userpass")]
 
 
 
-from .data import *
-from .models import *
+ 
+ 
 
 import gradio as gr
 from gradio_client import Client
@@ -91,7 +91,7 @@ def createchat(builder, lg="en"):
         #m_category=None
         current_language = lg
 
-        with gr.Column() as panel:
+        with gr.Blocks() as panel:
             with gr.Row():
                 with gr.Column(scale=1):
                     with gr.Accordion(LANGUAGES[current_language]["options"]):
@@ -167,7 +167,7 @@ def createchat(builder, lg="en"):
                     )
 
                     chat_msg = chat_input.submit(
-                        builder.add_message, [chatbot, chat_input], [chatbot, chat_input]
+                        builder.add_message, [chatbot, chat_input], [chatbot, chat_input],api_name="add_message"
                     )
                     bot_msg = chat_msg.then(builder.bot, chatbot, chatbot, api_name="bot_response")
                     bot_msg.then(lambda: gr.MultimodalTextbox(interactive=True), None, [chat_input])

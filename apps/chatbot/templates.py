@@ -1,6 +1,5 @@
 
 from .seeds import *
-from .components import *
 
 from .builders import *
 import gradio as gr
@@ -9,7 +8,9 @@ import pandas as pd
 from random import randint
 import plotly.express as px
 import time
-from typing import Optional
+from typing import Optional, Text
+from .components import *
+from .routers import *
 
 class TemplateSpeechStudioBuilder:
     def __init__(self, url, token, isDev=True, data=None) -> None:
@@ -41,7 +42,21 @@ class TemplateSpeechStudioBuilder:
 
         print(f"Message event: {self.msg_event}")
         print(f"Status code: {self.status_code}")
-
+    def get_data_chat_txt_model(self,data=[]):
+       
+           
+            model_info = {
+                "modelGateway": data.get("modelGateway", ""),
+                "modelAi": data.get("modelAi", "wasmdashai/T2T"),
+                "service": data.get("service", "/predict"),
+                "token": data.get("token","AIzaSyC85_3TKmiXtOpwybhSFThZdF1nGKlxU5c"),
+                "eventId": data.get("eventId", ""),
+                "numberRequests": data.get("numberRequests", 0),
+                "currentNumberRequests": data.get("currentNumberRequests", 0)
+            }
+            return model_info
+         
+         
     def handle_error(self, message, status_code):
         self.msg_event = message
         self.status_code = status_code
@@ -95,7 +110,7 @@ class TemplateSpeechStudioBuilder:
              #return service_ids[0]
 
              return "serv_3daa9b9b2f3a466eb15edecb415481af"
-
+    
     def ask_ai(self, message):
 
         if not message or message == "":
@@ -117,8 +132,8 @@ class TemplateSpeechStudioBuilder:
         print(f"ServiceId: {self.serviceId}")
 
         request = self.builderRequest.Create_request(serviceId=self.serviceId)
-
-
+        
+        datarquest=self.get_data_chat_txt_model(data={})
         result = ""
         print(f"Request : {request}")
         print(f"msg_event: {self.builderRequest.msg_event}")
@@ -127,10 +142,10 @@ class TemplateSpeechStudioBuilder:
 
         if  request and request.get("status") == "success" and request.get("data")  :
             try:
-
+                
                 if self.client is None:
 
-                    self.client = Client("wasmdashai/T2T")
+                    self.client = Client(datarquest['modelAi'])
                     self.msg_event = "Client initialized successfully"
                     self.status_code = 22.2
             except Exception as e:
@@ -138,25 +153,27 @@ class TemplateSpeechStudioBuilder:
                 self.msg_event = f"Error initializing client: {e}"
                 self.status_code = 22.3
                 print(f"Error initializing client: {e}")
-                self.client = Client("wasmdashai/T2T")
+                self.client = Client(datarquest['modelAi'])
 
                 #self.handle_error(f"Error initializing client: {e}", 22.3)
 
             try:
+
                 result = self.client.predict(
                     #key=request["data"]["token"]
                     #api_name=request["data"]["service"]
-
-                    key="AIzaSyC85_3TKmiXtOpwybhSFThZdF1nGKlxU5c",
-                    api_name="/predict"
+                    text=message,
+                    key=datarquest['token'],
+                    api_name=datarquest['service']
                 )
+
 
                 if result!=None:
                     print(f"result: {result}")
                     self.msg_event = "predict completed successfully"
                     self.status_code = 222
                     event_id=request["data"]["eventId"]
-                    result=message
+                     
                     status=request["status"]
 
 
@@ -173,7 +190,9 @@ class TemplateSpeechStudioBuilder:
                         self.status_code =result_request['status_code']
                         print(f"msg_event: {self.msg_event}")
                         print(self.msg_event)
-                        return self.handle_error(self.msg_event ,self.status_code)
+                        if self.Isdiv==False:
+                          
+                              return self.handle_error(self.msg_event ,self.status_code)
 
 
                 else:
@@ -205,6 +224,7 @@ class TemplateSpeechStudioBuilder:
 
 
     def generate_audio(self,token,message):
+
 
 
         self.msg_event = "Audio generation started"
@@ -257,31 +277,41 @@ class TemplateSpeechStudioBuilder:
     def print_like_dislike(self, x: gr.LikeData, history):
         self.msg_event = f"Like/Dislike event triggered for index {x.index}"
         return self.generate_audio(history[x.index]["content"])
-
+    
+    def get_filter(self,FilterModelAI,returnName):
+     
+          if not FilterModelAI:
+                  return None
+              
+          if returnName is None:
+                    return None
+          result=self.builder.get_filter(FilterModelAI,returnName)
+          return result
  
     def update_languages(self, category):
 
         self.msg_event = f"Updating languages for category {category}"
 
-        available_languages=self.builder.get_filter(FilterModelAI(category=category),"language")
+        available_languages=self.get_filter(FilterModelAI(category=category),"language")
         return gr.update(choices=available_languages, value=[], visible=True)
 
     def update_dialects(self,category,language):
 
         self.msg_event = f"Updating dialects for language {language}"
-        available_dialects=self.builder.get_filter(FilterModelAI(category=category,language=language),"dialect")
+        available_dialects=self.get_filter(FilterModelAI(category=category,language=language),"dialect")
 
         return gr.update(choices=available_dialects, value=[], visible=True)
 
     def update_models(self, category,language,dialect):
         self.msg_event = f"Updating models for dialect {dialect}"
-        default_model=self.builder.get_filter(FilterModelAI(category=category,language=language,dialect=dialect),"name")
+        default_model=self.get_filter(FilterModelAI(category=category,language=language,dialect=dialect),"name")
         self.msg_event = f"Updating models for dialect {dialect}"
 
         first_value = default_model[0] if default_model and isinstance(default_model, list) else None
         return gr.update(choices=default_model, value=first_value,visible=True)
-
-
+    
+    def createapi(self, data=None, language="en"):
+        return UserHandler(self).get_router()
     def createapp(self, data=None, language="en"):
 
         self.msg_event = f"Creating app for language {language}"
