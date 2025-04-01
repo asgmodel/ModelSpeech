@@ -4,7 +4,7 @@ from fastapi.responses import RedirectResponse
 
 
 import t2speechmuit
-
+import chataist
 import audio_interface
 app = FastAPI()
 
@@ -25,8 +25,8 @@ async def redirect_to_site():
 
 app = gr.mount_gradio_app(app, t2speechmuit.demo, path='/t2speechmuit')
 
-
-app = gr.mount_gradio_app(app, audio_interface.demo, path='/manger-audio')
+app = gr.mount_gradio_app(app, chataist.demo, path='/chat-pro')
+app = gr.mount_gradio_app(app, audio_interface.demo, path='/studio-pro')
 
 
 
