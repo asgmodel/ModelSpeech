@@ -14,7 +14,77 @@ from modelscope_studio.components.pro.chatbot import (ChatbotActionConfig,
 from modelscope_studio.components.pro.multimodal_input import \
   MultimodalInputUploadConfig
 from openai import OpenAI
+bodyicon = """
+    <style>
+      :root {
+    --name: default;
 
+    --primary-500: rgba(11, 186, 131, 1);
+    }
+      .shadow-primary {
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.25);
+      }
+      .icon-xxl {
+        width: 170px;
+        height: 170px;
+        line-height: 6.8rem;
+        align-items: center;
+      }
+      .icon-md, .icon-lg, .icon-xl, .icon-xxl {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+      }
+      .flex-shrink-0 {
+        flex-shrink: 0 !important;
+      }
+      .rounded-circle {
+        border-radius: 50% !important;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .mud-icon-root.mud-svg-icon {
+        fill: rgba(11,186,131,1);
+      }
+      .mud-icon-size-large {
+        font-size: 4.25rem !important;
+        width: 7.25rem !important;
+        height: 7.25rem !important;
+      }
+      .mud-success-text {
+        color: rgba(11,186,131,1);
+      }
+      .icon-cont-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+      }
+      .built-with.svelte-sar7eh.svelte-sar7eh.svelte-sar7eh {
+        display:none !important;
+      }
+     footer.svelte-sar7eh.svelte-sar7eh.svelte-sar7eh {
+    position: fixed;
+    right: 20px;
+    top: 0;
+}
+
+    </style>
+    <div class="icon-cont-center  ">
+    <div id="logo-icon-static-id" class="icon-xxl text-center shadow-primary rounded-circle flex-shrink-0">
+        <svg class="mud-icon-root mud-svg-icon mud-success-text mud-icon-size-large" style="direction:ltr !important;margin:8px !important" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img">
+            <title>API</title>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M6 13c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0 4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0-8c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm-3 .5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zM6 5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm15 5.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM14 7c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0-3.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zm-11 10c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm7 7c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm0-17c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM10 7c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0 5.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm8 .5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0 4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0-8c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm3 8.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zM14 17c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0 3.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-4-12c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0 8.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm4-4.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0-4c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"></path>
+        </svg>
+    </div>
+    </div>
+"""
 # =========== Configuration
 
 # API KEY
@@ -34,9 +104,6 @@ DEFAULT_PROMPTS = [{
         "description": "Help me with a plan to start a business",
     }, {
         "description": "Help me with a plan to achieve my goals",
-    }, {
-        "description":
-        "Help me with a plan for a successful interview",
     }]
 }, {
     "label":
@@ -45,9 +112,9 @@ DEFAULT_PROMPTS = [{
         "description": "SHelp me write a story with a twist ending",
     }, {
         "description": "Help me write a blog post on mental health",
-    }, {
-        "description": "Help me write a letter to my future self",
-    }]
+    },
+       
+    ]
 }]
 
 DEFAULT_SUGGESTIONS = [{
@@ -86,7 +153,7 @@ DEFAULT_LOCALE = 'en_US'
 
 DEFAULT_THEME = {
     "token": {
-        "colorPrimary": "#6A57FF",
+        "colorPrimary": "rgba(11, 186, 131, 1)",
     }
 }
 
@@ -121,11 +188,21 @@ def bot_config(disabled_actions=None):
                                     "Are you sure to delete this message?",
                                     okButtonProps=dict(danger=True)))
         ],
-        avatar=
-        "/content/icon.svg",
+        avatar="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*s5sNRo5LjfQAAAAAAAAAAAAADgCCAQ/fmt.webp",
         disabled_actions=disabled_actions)
 
-
+from gradio_client import Client
+client = Client("wasmdashai/T2T")
+def ask_ai(message ):
+     
+        
+     
+     result = client.predict(
+         text=message,
+         key="AIzaSyC85_3TKmiXtOpwybhSFThZdF1nGKlxU5c",
+         api_name="/predict"
+     )
+     return result
 class Gradio_Events:
 
     @staticmethod
@@ -181,12 +258,9 @@ class Gradio_Events:
             state: gr.update(value=state_value),
         }
         try:
-            response = client.chat.completions.create(
-                model=model,  # ModelScope Model-Id
-                messages=history_messages,
-                stream=True)
+            response = ask_ai(history_messages)
             for chunk in response:
-                history[-1]["content"] += chunk.choices[0].delta.content
+                history[-1]["content"] += chunk
                 history[-1]["loading"] = False
                 yield {
                     chatbot: gr.update(value=history),
@@ -439,9 +513,11 @@ css = """
       padding: 0;
   }
 }
+                
+  
        :root {
     --name: default;
-
+   
     --primary-500: rgba(11, 186, 131, 1);
     }
       .shadow-primary {
@@ -557,9 +633,27 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                             ) as conversation_delete_menu_item:
                                 with ms.Slot("icon"):
                                     antd.Icon("DeleteOutlined")
+                    antd.Divider("Settings")
+
+                                 # Settings Area
+                    with antd.Space(size="small",
+                                                 wrap=True,
+                                                 elem_id="settings-area"):
+                                     system_prompt_btn = antd.Button(
+                                         "⚙️ Set System Prompt", type="default")
+                                     history_btn = antd.Dropdown.Button(
+                                         "📜 History",
+                                         type="default",
+                                         elem_id="history-btn",
+                                         menu=dict(items=[{
+                                             "key": "clear",
+                                             "label": "Clear History",
+                                             "danger": True
+                                         }]))
             # Right Column
             with antd.Col(flex=1, elem_style=dict(height="100%")):
                 with antd.Flex(vertical=True, elem_classes="chatbot-chat"):
+                    gr.HTML(bodyicon)
                     # Chatbot
                     chatbot = pro.Chatbot(
                         elem_classes="chatbot-chat-messages",
@@ -586,25 +680,13 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                                     "children": [{
                                         "description":
                                         "Help me with a plan to start a business"
-                                    }, {
-                                        "description":
-                                        "Help me with a plan to achieve my goals"
-                                    }, {
-                                        "description":
-                                        "Help me with a plan for a successful interview"
-                                    }]
+                                    },]
                                 }, {
                                     "label":
                                     "📅 Help me write",
                                     "children": [{
                                         "description":
                                         "Help me write a story with a twist ending"
-                                    }, {
-                                        "description":
-                                        "Help me write a blog post on mental health"
-                                    }, {
-                                        "description":
-                                        "Help me write a letter to my future self"
                                     }]
                                 }]),
                         ),
@@ -635,7 +717,9 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                                     upload_config=MultimodalInputUploadConfig(
                                         upload_button_tooltip=
                                         "Upload Attachments",
+                                        allow_speech=True, allow_paste_file=True,
                                         max_count=6,
+                                        
                                         accept="image/*",
                                         multiple=True)) as input:
                                 with ms.Slot("prefix"):
@@ -740,3 +824,5 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                  ],
                  cancels=[submit_event, regenerating_event],
                  queue=False)
+
+
