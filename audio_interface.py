@@ -113,7 +113,7 @@ DEFAULT_PROMPTS = [{
     }, {
         "description": "Help me write a blog post on mental health",
     },
-       
+
     ]
 }]
 
@@ -194,9 +194,9 @@ def bot_config(disabled_actions=None):
 from gradio_client import Client
 client = Client("wasmdashai/T2T")
 def ask_ai(message ):
-     
-        
-     
+
+
+
      result = client.predict(
          text=message,
          key="AIzaSyC85_3TKmiXtOpwybhSFThZdF1nGKlxU5c",
@@ -513,11 +513,11 @@ css = """
       padding: 0;
   }
 }
-                
-  
+
+
        :root {
     --name: default;
-   
+
     --primary-500: rgba(11, 186, 131, 1);
     }
       .shadow-primary {
@@ -725,7 +725,7 @@ def   getChatPro():
                                               "Upload Attachments",
                                               allow_speech=True, allow_paste_file=True,
                                               max_count=6,
-                                              
+
                                               accept="image/*",
                                               multiple=True)) as input:
                                       with ms.Slot("prefix"):
@@ -746,7 +746,7 @@ def   getChatPro():
                   storage_key="ms_chatbot_storage")
           # Events Handler
           if save_history:
-              
+
               state.change(fn=Gradio_Events.update_browser_state,
                           inputs=[state],
                           outputs=[browser_state])
@@ -862,32 +862,126 @@ def convert_to_tree(data):
     return tree
 
 # البيانات الأصلية بصيغة JSON
-your_json_data = {
-    "Controllers": ["Api", "Auth", "Admin"],
-    "Repositories": ["Base", "Builder", "Share"],
-    "Services": ["Email", "Logging"],
-    "DyModels": [
-        {
-            "VM": [],
-            "Dto": {
-                "Build": ["Request", "Response", "ResponseFilter"],
-                "Share": ["Request", "Response", "ResponseFilter"]
-            },
-            "Dso": ["Request", "Response", "ResponseFilter"]
-        }
-    ],
-    "Config": ["Mappers", "Scopes", "Singletons", "Transients"],
-    "Models": [],
-    "Builders": ["Db"],
-    "Helper": [],
-    "Data": [],
-    "Enums": [],
-    "Validators": ["Conditions"],
-    "Schedulers": []
-}
+json_data ={'Builders': {'Db': []},
+ 'Config': {'Mappers': [], 'Scopes': [], 'Singletons': [], 'Transients': []},
+ 'Controllers': {'Admin': [], 'Api': [], 'Auth': []},
+ 'Data': [],
+ 'DyModels': {'Dso': {'Request': [], 'Response': [], 'ResponseFilter': []},
+              'Dto': {'Build': {'Request': [], 'Response': [], 'ResponseFilter': []},
+                      'Share': {'Request': [], 'Response': [], 'ResponseFilter': []}},
+              'VM': {'Advertisement': [],
+                     'AdvertisementTab': [],
+                     'ApplicationUser': [],
+                     'AuthorizationSession': [],
+                     'CategoryModel': [],
+                     'CategoryTab': [],
+                     'Dialect': [],
+                     'EventRequest': [],
+                     'FAQItem': [],
+                     'Invoice': [],
+                     'Language': [],
+                     'ModelAi': [],
+                     'ModelGateway': [],
+                     'Payment': [],
+                     'Plan': [],
+                     'PlanFeature': [],
+                     'Request': [],
+                     'Service': [],
+                     'ServiceMethod': [],
+                     'Setting': [],
+                     'Space': [],
+                     'Statistics': [],
+                     'Subscription': [],
+                     'TypeModel': [],
+                     'UserModelAi': [],
+                     'UserService': []}},
+ 'Enums': [],
+ 'Helper': [],
+ 'Models': [],
+ 'Repositories': {'Base': [],
+                  'Builder': {'Advertisement': [],
+                              'AdvertisementTab': [],
+                              'ApplicationUser': [],
+                              'AuthorizationSession': [],
+                              'CategoryModel': [],
+                              'CategoryTab': [],
+                              'Dialect': [],
+                              'EventRequest': [],
+                              'FAQItem': [],
+                              'Invoice': [],
+                              'Language': [],
+                              'ModelAi': [],
+                              'ModelGateway': [],
+                              'Payment': [],
+                              'Plan': [],
+                              'PlanFeature': [],
+                              'Request': [],
+                              'Service': [],
+                              'ServiceMethod': [],
+                              'Setting': [],
+                              'Space': [],
+                              'Subscription': [],
+                              'TypeModel': [],
+                              'UserModelAi': [],
+                              'UserService': []},
+                  'Share': {'Advertisement': [],
+                            'AdvertisementTab': [],
+                            'ApplicationUser': [],
+                            'AuthorizationSession': [],
+                            'CategoryModel': [],
+                            'CategoryTab': [],
+                            'Dialect': [],
+                            'EventRequest': [],
+                            'FAQItem': [],
+                            'Invoice': [],
+                            'Language': [],
+                            'ModelAi': [],
+                            'ModelGateway': [],
+                            'Payment': [],
+                            'Plan': [],
+                            'PlanFeature': [],
+                            'Request': [],
+                            'Service': [],
+                            'ServiceMethod': [],
+                            'Setting': [],
+                            'Space': [],
+                            'Subscription': [],
+                            'TypeModel': [],
+                            'UserModelAi': [],
+                            'UserService': []}},
+ 'Schedulers': [],
+ 'Services': {'Advertisement': [],
+              'AdvertisementTab': [],
+              'ApplicationUser': [],
+              'AuthorizationSession': [],
+              'CategoryModel': [],
+              'CategoryTab': [],
+              'Dialect': [],
+              'Email': [],
+              'EventRequest': [],
+              'FAQItem': [],
+              'Invoice': [],
+              'Language': [],
+              'Logging': [],
+              'ModelAi': [],
+              'ModelGateway': [],
+              'Payment': [],
+              'Plan': [],
+              'PlanFeature': [],
+              'Request': [],
+              'Service': [],
+              'ServiceMethod': [],
+              'Setting': [],
+              'Space': [],
+              'Statistics': [],
+              'Subscription': [],
+              'TypeModel': [],
+              'UserModelAi': [],
+              'UserService': []},
+ 'Validators': {'Conditions': []}}
 
 # تحويل البيانات لصيغة الشجرة
-tree_data = convert_to_tree(your_json_data)
+tree_data = convert_to_tree(json_data)
 import base64
 import os
 import re
@@ -903,7 +997,7 @@ from openai import OpenAI
 
 client = None
 
-model = "Qwen/Qwen2.5-Coder-32B-Instruct"
+model = "WasmAI.AutoGenerator 1.0.1-a"
 # =========== Configuration
 
 DEFAULT_SYSTEM_PROMPT = """You are a web development engineer, writing web pages according to the instructions below. You are a powerful code editing assistant capable of writing code and creating artifacts in conversations with users, or modifying and updating existing artifacts as requested by users.
@@ -1144,7 +1238,7 @@ def  getStuido():
                                               "label": "Clear History",
                                               "danger": True
                                           }]))
-                                  
+
 
                                   antd.Divider("Examples")
 
@@ -1335,7 +1429,8 @@ def  getStuido():
               return app
 
 
-                                      
+
+
 
 def  AppProAI(inputs=[],outputs=[]):
      with gr.Blocks() as demo:
@@ -1346,20 +1441,33 @@ def  AppProAI(inputs=[],outputs=[]):
                with antd.ConfigProvider(theme=DEFAULT_THEME, locale=DEFAULT_LOCALE):
               #  with antd.Col(span=24):
               #  antd.Text("Welcome to AppProAI - Your AI Solution", style={"fontSize": "24px", "fontWeight": "bold", "textAlign": "center"})
-              
+
                     with antd.Row(gutter=[32, 12],
                                           elem_style=dict(marginTop=20),
                                           align="stretch"):
                                           # Left Column
                           with antd.Col(span=24, md=6):
                                 with antd.Flex(vertical=True, gap="middle", wrap=True):
-                        
-                                      antd.Tree.DirectoryTree(
-                                          draggable=True,
-                                          multiple=True,
-                                          default_expand_all=True,
-                                          tree_data=tree_data
-                                      )
+                                      with antd.ConfigProvider():
+                                            antd.Divider("Project Filtes")
+                                            antd.Tree.DirectoryTree(
+                                                show_line=True,
+                                                show_icon=True,
+                                                checkable=True,
+
+
+                                              elem_style=dict(
+              width="250px",
+              height="100%",
+              overflow="auto",
+              whiteSpace="nowrap"
+          ),
+                                                # draggable=True,
+                                                multiple=True,
+                                                default_expand_all=False,
+                                                tree_data=tree_data
+
+                                            )
                                       # Right Column
                           with antd.Col(span=24, md=18):
 
@@ -1368,12 +1476,12 @@ def  AppProAI(inputs=[],outputs=[]):
                                           getStuido()
                                     with antd.Tabs.Item(key="2", label="ChatBot"):
                                           app,conversations,browser_state,state=getChatPro()
-                                    
+
           demo.load(fn=main, inputs=[],
                                           outputs=[])
-                               
 
-                        
+
+
               #
 
 
@@ -1381,6 +1489,7 @@ def  AppProAI(inputs=[],outputs=[]):
 
      return demo
 
-         
-    
+
+
 demo=AppProAI()
+
