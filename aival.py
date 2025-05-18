@@ -216,22 +216,22 @@ def process_validator_request(model_name, model_structure, template_instructions
 
     try:
         generated_prompt = generate_validator_prompt(model_name, model_structure, template_instructions)
+        response = ask_ai(generated_prompt).strip()
 
+        # Handle both lowercase and uppercase ```csharp / ```C#
+        for prefix in ["```csharp", "```C#"]:
+            if response.startswith(prefix):
+                response = response[len(prefix):].strip()
         
-        response= ask_ai(generated_prompt)
-
-        
-        response = response.strip()
-        if response.startswith("```csharp"):
-            response = response[len("```csharp"):].strip()
         if response.endswith("```"):
             response = response[:-len("```")].strip()
 
         return response
 
     except Exception as e:
-        print(f"An error occurred: {e}")
-        return f"An error occurred during generation: {e}"
+        return f"Error during processing: {str(e)}"
+
+
 
 def process_multiple_validators(model_names_str, model_structure, template_instructions):
     model_names = [name.strip() for name in model_names_str.split(",") if name.strip()]
