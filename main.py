@@ -12,6 +12,7 @@ import t2speechmuit
 import chataist
 import audio_interface
 import testc
+from aival import render_outputs
 app = FastAPI()
 
 @app.get('/')
@@ -28,13 +29,14 @@ async def redirect_to_site():
 # نقطة النهاية لمعالجة الطلب
 @app.post("/predict")
 async def run_model(input_data: ModelInput):
-    client = Client("wasmdashai/LAHJA-AI")
-    result = client.predict(
-            model_names_str=input_data.model_name,
-            model_structure=input_data.model_structure,
-            template_instructions=input_data.template_instructions,
-            api_name="/render_outputs"
-    )
+    # client = Client("wasmdashai/LAHJA-AI")
+    # result = client.predict(
+    #         model_names_str=input_data.model_name,
+    #         model_structure=input_data.model_structure,
+    #         template_instructions=input_data.template_instructions,
+    #         api_name="/render_outputs"
+    # )
+    result=render_outputs(input_data.model_name,input_data.model_structure,input_data.template_instructions)
     return {"result": result}
 
 
