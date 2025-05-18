@@ -1,7 +1,12 @@
 from fastapi import FastAPI
 import gradio as gr
 from fastapi.responses import RedirectResponse
-
+from gradio_client import Client
+from pydantic import BaseModel
+class ModelInput(BaseModel):
+    model_name: str
+    model_structure: str
+    template_instructions: str
 
 import t2speechmuit
 import chataist
@@ -19,6 +24,18 @@ async def redirect_to_site():
 
 
 
+
+# نقطة النهاية لمعالجة الطلب
+@app.post("/predict")
+async def run_model(input_data: ModelInput):
+    client = Client("wasmdashai/LAHJA-AI")
+    result = client.predict(
+        model_name=input_data.model_name,
+        model_structure=input_data.model_structure,
+        template_instructions=input_data.template_instructions,
+        api_name="/process_validator_request"
+    )
+    return {"result": result}
 
 
 
