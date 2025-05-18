@@ -30,10 +30,10 @@ async def redirect_to_site():
 async def run_model(input_data: ModelInput):
     client = Client("wasmdashai/LAHJA-AI")
     result = client.predict(
-        model_name=input_data.model_name,
-        model_structure=input_data.model_structure,
-        template_instructions=input_data.template_instructions,
-        api_name="/process_validator_request"
+            model_names_str=input_data.model_name,
+            model_structure=input_data.model_structure,
+            template_instructions=input_data.template_instructions,
+            api_name="/render_outputs"
     )
     return {"result": result}
 
