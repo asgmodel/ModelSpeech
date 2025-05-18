@@ -12,7 +12,7 @@ import t2speechmuit
 import chataist
 import audio_interface
 import testc
-from aival import render_outputs
+from aival import process_validator_request
 app = FastAPI()
 
 @app.get('/')
@@ -36,7 +36,7 @@ async def run_model(input_data: ModelInput):
     #         template_instructions=input_data.template_instructions,
     #         api_name="/render_outputs"
     # )
-    result=render_outputs(input_data.model_name,input_data.model_structure,input_data.template_instructions)
+    result=process_validator_request(input_data.model_name,input_data.model_structure,input_data.template_instructions)
     return {"result": result}
 
 
