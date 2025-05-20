@@ -9,7 +9,7 @@ class ModelInput(BaseModel):
     template_instructions: str
 
 import t2speechmuit
-import chataist
+# import chataist
 import chatasg
 
 import audio_interface
