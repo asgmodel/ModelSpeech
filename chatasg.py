@@ -105,7 +105,7 @@ DEFAULT_PROMPTS = [{
     }, {
         "description": "Help me write a blog post on mental health",
     },
-       
+
     ]
 }]
 
@@ -184,21 +184,41 @@ def bot_config(disabled_actions=None):
         disabled_actions=disabled_actions)
 
 from gradio_client import Client
-client = Client("wasmdashai/dash-asg")
-def ask_ai(message ):
-     
-       
+clientasg = Client("wasmdashai/dash-asg")
+def ask_ai_asg(message ):
 
-    
-     result = client.predict(
+
+
+
+     result = clientasg.predict(
     		text=message,
     		namn_model="Group",
     		api_name="/t2t"
     )
 
-     
-    
+
+
      return result
+
+from gradio_client import Client
+client = Client("wasmdashai/T2T")
+def ask_ai(message ):
+
+
+    
+  
+     result = client.predict(
+         text=message,
+         key="AIzaSyC85_3TKmiXtOpwybhSFThZdF1nGKlxU5c",
+         api_name="/predict"
+     )
+     return result
+
+def   ask_asgchat(txt):
+       txt=ask_ai(txt)
+       txt=ask_ai_asg(txt)
+       txt=ask_ai(txt)
+       return txt
 class Gradio_Events:
 
     @staticmethod
@@ -254,9 +274,9 @@ class Gradio_Events:
             state: gr.update(value=state_value),
         }
         try:
-            response = ask_ai(history_messages)
+            response = ask_asgchat(history_messages).split(" ")
             for chunk in response:
-                history[-1]["content"] += chunk
+                history[-1]["content"] += chunk+" "
                 history[-1]["loading"] = False
                 yield {
                     chatbot: gr.update(value=history),
@@ -509,11 +529,11 @@ css = """
       padding: 0;
   }
 }
-                
-  
+
+
        :root {
     --name: default;
-   
+
     --primary-500: rgba(11, 186, 131, 1);
     }
       .shadow-primary {
@@ -715,7 +735,8 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                                         "Upload Attachments",
                                         allow_speech=True, allow_paste_file=True,
                                         max_count=6,
-                                        
+                                        auto_size=dict(minRows=2, maxRows=6),
+
                                         accept="image/*",
                                         multiple=True)) as input:
                                 with ms.Slot("prefix"):
