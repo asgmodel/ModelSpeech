@@ -88,58 +88,71 @@ model = "ASG-AI"
 save_history = False
 
 # =========== Configuration
-
 DEFAULT_PROMPTS = [{
-    "label":
-    "📅 Make a plan",
+    "label": "🛡️ سيناريوهات الهجوم",
     "children": [{
-        "description": "Help me with a plan to start a business",
+        "description": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
     }, {
-        "description": "Help me with a plan to achieve my goals",
+        "description": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
     }]
 }, {
-    "label":
-    "🖋 Help me write",
+    "label": "🧠 تحليل وتقنيات",
     "children": [{
-        "description": "SHelp me write a story with a twist ending",
+        "description": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
     }, {
-        "description": "Help me write a blog post on mental health",
-    },
-
-    ]
+        "description": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
+    }]
+}, {
+    "label": "🧪 فحص واختبار",
+    "children": [{
+        "description": "ساعدني في اختبار سيناريو هجوم على بيئة تجريبية"
+    }, {
+        "description": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
+    }]
+}, {
+    "label": "🛠️ أدوات وهجمات",
+    "children": [{
+        "description": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
+    }, {
+        "description": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
+    }]
 }]
 
 DEFAULT_SUGGESTIONS = [{
-    "label":
-    'Make a plan',
-    "value":
-    "Make a plan",
+    "label": "سيناريوهات الهجوم",
+    "value": "سيناريوهات الهجوم",
     "children": [{
-        "label": "Start a business",
-        "value": "Help me with a plan to start a business"
+        "label": "بناء سيناريو باستخدام MITRE ATT&CK",
+        "value": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
     }, {
-        "label": "Achieve my goals",
-        "value": "Help me with a plan to achieve my goals"
+        "label": "تحليل سيناريو واكتشاف نقاط الضعف",
+        "value": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
     }, {
-        "label": "Successful interview",
-        "value": "Help me with a plan for a successful interview"
+        "label": "اختبار بيئة ضد سيناريو متعدد المراحل",
+        "value": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
     }]
 }, {
-    "label":
-    'Help me write',
-    "value":
-    "Help me write",
+    "label": "تحليل وتقنيات",
+    "value": "تحليل وتقنيات",
     "children": [{
-        "label": "Story with a twist ending",
-        "value": "Help me write a story with a twist ending"
+        "label": "شرح تكتيك من MITRE ATT&CK",
+        "value": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
     }, {
-        "label": "Blog post on mental health",
-        "value": "Help me write a blog post on mental health"
+        "label": "تحليل تقنية ضمن حملة اختراق",
+        "value": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
+    }]
+}, {
+    "label": "أدوات وبرمجيات خبيثة",
+    "value": "أدوات وبرمجيات خبيثة",
+    "children": [{
+        "label": "إنشاء سيناريو باستخدام أدوات مفتوحة",
+        "value": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
     }, {
-        "label": "Letter to my future self",
-        "value": "Help me write a letter to my future self"
+        "label": "استخدام برنامج خبيث في سيناريو متقدم",
+        "value": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
     }]
 }]
+
 
 DEFAULT_LOCALE = 'en_US'
 
