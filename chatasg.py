@@ -212,7 +212,15 @@ def ask_ai_asg(message ):
 
 
      return result
+from gradio_client import Client
 
+def    ask_wasm(txt):
+        clientf = Client("wasmdashai/LAHJA-AI")
+        result = clientf.predict(
+        		prompt=txt,
+        		api_name="/generate_from_prompt"
+        )
+        return result
 from gradio_client import Client
 client = Client("wasmdashai/T2T")
 def ask_ai(message ):
@@ -227,10 +235,12 @@ def ask_ai(message ):
      )
      return result
 
-def   ask_asgchat(txt):
-       txt=ask_ai(txt)
+def   ask_asgchat(txtk):
+       txt=ask_ai(str(txtk) +"حول السوال الى الانجليزية ")
        txt=ask_ai_asg(txt)
-       gg="TThe output is always in an organized format and the word is arranged in such a way that the title is colored and the content is always organized. The answer is in the language of the question. Focus well. "
+
+      #  txt=ask_wasm(txt)
+       gg=f"TThe output is always in an organized format and the word is arranged in such a way that the title is colored and the content is always organized. الاجابة سوف تكون خسب  لغة السوال الاواخير "
        txt=ask_ai(txt+"           "+gg)
        return txt
 class Gradio_Events:
@@ -680,10 +690,25 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                                              "label": "Clear History",
                                              "danger": True
                                          }]))
+                    antd.Divider("Configuring Options")
+                    antd.Radio.Group(option_type="button",
+                             button_style="solid",
+                             options=[
+                                 {
+                                     "label": 'متزن',
+                                     "value": 'm'
+                                 },
+                                 {
+                                     "label": 'منطقي',
+                                     "value": 'bool'
+                                 }
+                                
+                             ])
             # Right Column
             with antd.Col(flex=1, elem_style=dict(height="100%")):
                 with antd.Flex(vertical=True, elem_classes="chatbot-chat"):
                     gr.HTML(bodyicon)
+                   
                     # Chatbot
                     chatbot = pro.Chatbot(
                         elem_classes="chatbot-chat-messages",
