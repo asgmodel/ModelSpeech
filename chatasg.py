@@ -88,71 +88,134 @@ model = "ASG-AI"
 save_history = False
 
 # =========== Configuration
+# DEFAULT_PROMPTS = [{
+#     "label": "🛡️ سيناريوهات الهجوم",
+#     "children": [{
+#         "description": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
+#     }, {
+#         "description": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
+#     }]
+# }, {
+#     "label": "🧠 تحليل وتقنيات",
+#     "children": [{
+#         "description": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
+#     }, {
+#         "description": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
+#     }]
+# }, {
+#     "label": "🧪 فحص واختبار",
+#     "children": [{
+#         "description": "ساعدني في اختبار سيناريو هجوم على بيئة تجريبية"
+#     }, {
+#         "description": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
+#     }]
+# }, {
+#     "label": "🛠️ أدوات وهجمات",
+#     "children": [{
+#         "description": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
+#     }, {
+#         "description": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
+#     }]
+# }]
+
+# DEFAULT_SUGGESTIONS = [{
+#     "label": "سيناريوهات الهجوم",
+#     "value": "سيناريوهات الهجوم",
+#     "children": [{
+#         "label": "بناء سيناريو باستخدام MITRE ATT&CK",
+#         "value": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
+#     }, {
+#         "label": "تحليل سيناريو واكتشاف نقاط الضعف",
+#         "value": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
+#     }, {
+#         "label": "اختبار بيئة ضد سيناريو متعدد المراحل",
+#         "value": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
+#     }]
+# }, {
+#     "label": "تحليل وتقنيات",
+#     "value": "تحليل وتقنيات",
+#     "children": [{
+#         "label": "شرح تكتيك من MITRE ATT&CK",
+#         "value": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
+#     }, {
+#         "label": "تحليل تقنية ضمن حملة اختراق",
+#         "value": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
+#     }]
+# }, {
+#     "label": "أدوات وبرمجيات خبيثة",
+#     "value": "أدوات وبرمجيات خبيثة",
+#     "children": [{
+#         "label": "إنشاء سيناريو باستخدام أدوات مفتوحة",
+#         "value": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
+#     }, {
+#         "label": "استخدام برنامج خبيث في سيناريو متقدم",
+#         "value": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
+#     }]
+# }]
+
 DEFAULT_PROMPTS = [{
-    "label": "🛡️ سيناريوهات الهجوم",
+    "label": "🛡️ Cyber Attack Scenarios",
     "children": [{
-        "description": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
+        "description": "Help me build an attack scenario using the MITRE ATT&CK framework"
     }, {
-        "description": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
+        "description": "Help me analyze an attack scenario and assess its impact"
     }]
 }, {
-    "label": "🧠 تحليل وتقنيات",
+    "label": "🧠 Techniques & Tactics",
     "children": [{
-        "description": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
+        "description": "Explain a specific MITRE ATT&CK tactic and how it is used"
     }, {
-        "description": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
+        "description": "Guide me through analyzing a technique used in an attack campaign"
     }]
 }, {
-    "label": "🧪 فحص واختبار",
+    "label": "🧪 Scenario Testing",
     "children": [{
-        "description": "ساعدني في اختبار سيناريو هجوم على بيئة تجريبية"
+        "description": "Help me test an attack scenario in a lab environment"
     }, {
-        "description": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
+        "description": "How can I evaluate my system's defenses against various attack scenarios?"
     }]
 }, {
-    "label": "🛠️ أدوات وهجمات",
+    "label": "🛠️ Tools & Malware",
     "children": [{
-        "description": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
+        "description": "Help me write an attack scenario using open-source tools"
     }, {
-        "description": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
+        "description": "What is an effective scenario for deploying malware in a simulated campaign?"
     }]
 }]
-
 DEFAULT_SUGGESTIONS = [{
-    "label": "سيناريوهات الهجوم",
-    "value": "سيناريوهات الهجوم",
+    "label": "Cyber Attack Scenarios",
+    "value": "Cyber Attack Scenarios",
     "children": [{
-        "label": "بناء سيناريو باستخدام MITRE ATT&CK",
-        "value": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
+        "label": "Use MITRE ATT&CK to model an attack",
+        "value": "Help me build an attack scenario using the MITRE ATT&CK framework"
     }, {
-        "label": "تحليل سيناريو واكتشاف نقاط الضعف",
-        "value": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
+        "label": "Analyze and assess an attack scenario",
+        "value": "Help me analyze an attack scenario and assess its impact"
     }, {
-        "label": "اختبار بيئة ضد سيناريو متعدد المراحل",
-        "value": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
+        "label": "Test system defenses against attacks",
+        "value": "How can I evaluate my system's defenses against various attack scenarios?"
     }]
 }, {
-    "label": "تحليل وتقنيات",
-    "value": "تحليل وتقنيات",
+    "label": "Techniques & Tactics",
+    "value": "Techniques & Tactics",
     "children": [{
-        "label": "شرح تكتيك من MITRE ATT&CK",
-        "value": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
+        "label": "Explain a MITRE ATT&CK tactic",
+        "value": "Explain a specific MITRE ATT&CK tactic and how it is used"
     }, {
-        "label": "تحليل تقنية ضمن حملة اختراق",
-        "value": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
+        "label": "Analyze a technique in an attack",
+        "value": "Guide me through analyzing a technique used in an attack campaign"
     }]
 }, {
-    "label": "أدوات وبرمجيات خبيثة",
-    "value": "أدوات وبرمجيات خبيثة",
+    "label": "Tools & Malware",
+    "value": "Tools & Malware",
     "children": [{
-        "label": "إنشاء سيناريو باستخدام أدوات مفتوحة",
-        "value": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
+        "label": "Scenario with open-source tools",
+        "value": "Help me write an attack scenario using open-source tools"
     }, {
-        "label": "استخدام برنامج خبيث في سيناريو متقدم",
-        "value": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
+        "label": "Deploy malware in a simulated campaign",
+        "value": "What is an effective scenario for deploying malware in a simulated campaign?"
     }]
 }]
-
 
 DEFAULT_LOCALE = 'en_US'
 
