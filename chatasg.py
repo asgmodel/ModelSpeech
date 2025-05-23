@@ -88,136 +88,73 @@ model = "ASG-AI"
 save_history = False
 
 # =========== Configuration
-# DEFAULT_PROMPTS = [{
-#     "label": "🛡️ سيناريوهات الهجوم",
-#     "children": [{
-#         "description": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
-#     }, {
-#         "description": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
-#     }]
-# }, {
-#     "label": "🧠 تحليل وتقنيات",
-#     "children": [{
-#         "description": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
-#     }, {
-#         "description": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
-#     }]
-# }, {
-#     "label": "🧪 فحص واختبار",
-#     "children": [{
-#         "description": "ساعدني في اختبار سيناريو هجوم على بيئة تجريبية"
-#     }, {
-#         "description": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
-#     }]
-# }, {
-#     "label": "🛠️ أدوات وهجمات",
-#     "children": [{
-#         "description": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
-#     }, {
-#         "description": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
-#     }]
-# }]
-
-# DEFAULT_SUGGESTIONS = [{
-#     "label": "سيناريوهات الهجوم",
-#     "value": "سيناريوهات الهجوم",
-#     "children": [{
-#         "label": "بناء سيناريو باستخدام MITRE ATT&CK",
-#         "value": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
-#     }, {
-#         "label": "تحليل سيناريو واكتشاف نقاط الضعف",
-#         "value": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
-#     }, {
-#         "label": "اختبار بيئة ضد سيناريو متعدد المراحل",
-#         "value": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
-#     }]
-# }, {
-#     "label": "تحليل وتقنيات",
-#     "value": "تحليل وتقنيات",
-#     "children": [{
-#         "label": "شرح تكتيك من MITRE ATT&CK",
-#         "value": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
-#     }, {
-#         "label": "تحليل تقنية ضمن حملة اختراق",
-#         "value": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
-#     }]
-# }, {
-#     "label": "أدوات وبرمجيات خبيثة",
-#     "value": "أدوات وبرمجيات خبيثة",
-#     "children": [{
-#         "label": "إنشاء سيناريو باستخدام أدوات مفتوحة",
-#         "value": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
-#     }, {
-#         "label": "استخدام برنامج خبيث في سيناريو متقدم",
-#         "value": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
-#     }]
-# }]
-#
 DEFAULT_PROMPTS = [{
-    "label": "🛡️ Cyber Attack Scenarios",
+    "label": "🛡️ سيناريوهات الهجوم",
     "children": [{
-        "description": "Help me build an attack scenario using the MITRE ATT&CK framework"
+        "description": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
     }, {
-        "description": "Help me analyze an attack scenario and assess its impact"
+        "description": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
     }]
 }, {
-    "label": "🧠 Techniques & Tactics",
+    "label": "🧠 تحليل وتقنيات",
     "children": [{
-        "description": "Explain a specific MITRE ATT&CK tactic and how it is used"
+        "description": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
     }, {
-        "description": "Guide me through analyzing a technique used in an attack campaign"
+        "description": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
     }]
 }, {
-    "label": "🧪 Scenario Testing",
+    "label": "🧪 فحص واختبار",
     "children": [{
-        "description": "Help me test an attack scenario in a lab environment"
+        "description": "ساعدني في اختبار سيناريو هجوم على بيئة تجريبية"
     }, {
-        "description": "How can I evaluate my system's defenses against various attack scenarios?"
+        "description": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
     }]
 }, {
-    "label": "🛠️ Tools & Malware",
+    "label": "🛠️ أدوات وهجمات",
     "children": [{
-        "description": "Help me write an attack scenario using open-source tools"
+        "description": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
     }, {
-        "description": "What is an effective scenario for deploying malware in a simulated campaign?"
-    }]
-}]
-DEFAULT_SUGGESTIONS = [{
-    "label": "Cyber Attack Scenarios",
-    "value": "Cyber Attack Scenarios",
-    "children": [{
-        "label": "Use MITRE ATT&CK to model an attack",
-        "value": "Help me build an attack scenario using the MITRE ATT&CK framework"
-    }, {
-        "label": "Analyze and assess an attack scenario",
-        "value": "Help me analyze an attack scenario and assess its impact"
-    }, {
-        "label": "Test system defenses against attacks",
-        "value": "How can I evaluate my system's defenses against various attack scenarios?"
-    }]
-}, {
-    "label": "Techniques & Tactics",
-    "value": "Techniques & Tactics",
-    "children": [{
-        "label": "Explain a MITRE ATT&CK tactic",
-        "value": "Explain a specific MITRE ATT&CK tactic and how it is used"
-    }, {
-        "label": "Analyze a technique in an attack",
-        "value": "Guide me through analyzing a technique used in an attack campaign"
-    }]
-}, {
-    "label": "Tools & Malware",
-    "value": "Tools & Malware",
-    "children": [{
-        "label": "Scenario with open-source tools",
-        "value": "Help me write an attack scenario using open-source tools"
-    }, {
-        "label": "Deploy malware in a simulated campaign",
-        "value": "What is an effective scenario for deploying malware in a simulated campaign?"
+        "description": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
     }]
 }]
 
-DEFAULT_LOCALE = 'en_US'
+DEFAULT_SUGGESTIONS = [{
+    "label": "سيناريوهات الهجوم",
+    "value": "سيناريوهات الهجوم",
+    "children": [{
+        "label": "بناء سيناريو باستخدام MITRE ATT&CK",
+        "value": "ساعدني في بناء سيناريو هجوم باستخدام إطار MITRE ATT&CK"
+    }, {
+        "label": "تحليل سيناريو واكتشاف نقاط الضعف",
+        "value": "ساعدني في تحليل سيناريو هجوم وتقييم تأثيره"
+    }, {
+        "label": "اختبار بيئة ضد سيناريو متعدد المراحل",
+        "value": "كيف أفحص فعالية دفاعات النظام ضد سيناريوهات متعددة"
+    }]
+}, {
+    "label": "تحليل وتقنيات",
+    "value": "تحليل وتقنيات",
+    "children": [{
+        "label": "شرح تكتيك من MITRE ATT&CK",
+        "value": "اشرح لي تكتيك معين من MITRE ATT&CK وكيف يُستخدم"
+    }, {
+        "label": "تحليل تقنية ضمن حملة اختراق",
+        "value": "وضح كيفية تحليل تكتيك وتقنية مستخدمة في حملة هجوم"
+    }]
+}, {
+    "label": "أدوات وبرمجيات خبيثة",
+    "value": "أدوات وبرمجيات خبيثة",
+    "children": [{
+        "label": "إنشاء سيناريو باستخدام أدوات مفتوحة",
+        "value": "ساعدني في كتابة سيناريو هجوم باستخدام أدوات مفتوحة المصدر"
+    }, {
+        "label": "استخدام برنامج خبيث في سيناريو متقدم",
+        "value": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
+    }]
+}]
+
+
+DEFAULT_LOCALE = 'ar_SA'
 
 DEFAULT_THEME = {
     "token": {
@@ -293,7 +230,8 @@ def ask_ai(message ):
 def   ask_asgchat(txt):
        txt=ask_ai(txt)
        txt=ask_ai_asg(txt)
-       txt=ask_ai(txt)
+       gg="TThe output is always in an organized format and the word is arranged in such a way that the title is colored and the content is always organized. The answer is in the language of the question. Focus well. "
+       txt=ask_ai(txt+"           "+gg)
        return txt
 class Gradio_Events:
 
@@ -350,9 +288,9 @@ class Gradio_Events:
             state: gr.update(value=state_value),
         }
         try:
-            response = ask_asgchat(history_messages).split(" ")
+            response = ask_asgchat(history_messages).split("\n")
             for chunk in response:
-                history[-1]["content"] += chunk+" "
+                history[-1]["content"] += chunk+" \n"
                 history[-1]["loading"] = False
                 yield {
                     chatbot: gr.update(value=history),
@@ -755,7 +693,7 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                             "https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*s5sNRo5LjfQAAAAAAAAAAAAADgCCAQ/fmt.webp",
                             title=f"Hello, I'm {model}",
                             description=
-                            "You can upload images and text to get started.",
+                            " مرحبا  بك    ",
                             prompts=dict(
                                 title="How can I help you today?",
                                 styles={
@@ -766,21 +704,7 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                                         "flex": 1,
                                     },
                                 },
-                                items=[{
-                                    "label":
-                                    "🖋 Make a plan",
-                                    "children": [{
-                                        "description":
-                                        "Help me with a plan to start a business"
-                                    },]
-                                }, {
-                                    "label":
-                                    "📅 Help me write",
-                                    "children": [{
-                                        "description":
-                                        "Help me write a story with a twist ending"
-                                    }]
-                                }]),
+                                items=DEFAULT_PROMPTS),
                         ),
                         user_config=user_config(),
                         bot_config=bot_config())
