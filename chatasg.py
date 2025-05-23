@@ -226,8 +226,8 @@ client = Client("wasmdashai/T2T")
 def ask_ai(message ):
 
 
-    
-  
+
+
      result = client.predict(
          text=message,
          key="AIzaSyC85_3TKmiXtOpwybhSFThZdF1nGKlxU5c",
@@ -238,9 +238,8 @@ def ask_ai(message ):
 def   ask_asgchat(txtk):
        txt=ask_ai(str(txtk) +"حول السوال الى الانجليزية ")
        txt=ask_ai_asg(txt)
-
       #  txt=ask_wasm(txt)
-       gg=f"TThe output is always in an organized format and the word is arranged in such a way that the title is colored and the content is always organized. الاجابة سوف تكون خسب  لغة السوال الاواخير "
+       gg=f"TThe output is always in an organized format and the word is arranged in such a way that the title is colored and the content is always organized. الاجابة سوف تكون خسب  لغة السوال الاواخير"
        txt=ask_ai(txt+"           "+gg)
        return txt
 class Gradio_Events:
@@ -625,12 +624,12 @@ def logo():
                                                margin=0)):
         with antd.Flex(align="center", gap="small", justify="center"):
             antd.Image(
-                "https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*eco6RrQhxbMAAAAAAAAAAAAADgCCAQ/original",
+                "https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*s5sNRo5LjfQAAAAAAAAAAAAADgCCAQ/fmt.webp",
                 preview=False,
                 alt="logo",
                 width=24,
                 height=24)
-            ms.Span("Chatbot")
+            ms.Span("ChatِASG")
 
 
 with gr.Blocks(css=css, fill_width=True) as demo:
@@ -702,13 +701,13 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                                      "label": 'منطقي',
                                      "value": 'bool'
                                  }
-                                
+
                              ])
             # Right Column
             with antd.Col(flex=1, elem_style=dict(height="100%")):
                 with antd.Flex(vertical=True, elem_classes="chatbot-chat"):
                     gr.HTML(bodyicon)
-                   
+
                     # Chatbot
                     chatbot = pro.Chatbot(
                         elem_classes="chatbot-chat-messages",
@@ -722,13 +721,21 @@ with gr.Blocks(css=css, fill_width=True) as demo:
                             prompts=dict(
                                 title="How can I help you today?",
                                 styles={
-                                    "list": {
-                                        "width": '100%',
-                                    },
-                                    "item": {
-                                        "flex": 1,
-                                    },
-                                },
+                "list": {
+                    "display": "flex",
+                    "flexWrap": "wrap",        # العناصر تلتف تلقائيًا في الشاشات الصغيرة
+                    "justifyContent": "center",
+                    "gap": "10px",
+                    "padding": "10px",
+                    "width": "100%",
+                    "boxSizing": "border-box",
+                },
+                "item": {
+                    "flex": "1 1 200px",       # الحد الأدنى 200px، يتمدد حسب المتاح
+                    "maxWidth": "100%",        # لا تتعدى عرض الشاشة
+                    "boxSizing": "border-box",
+                },
+            },
                                 items=DEFAULT_PROMPTS),
                         ),
                         user_config=user_config(),
