@@ -152,7 +152,7 @@ save_history = False
 #         "value": "ما هو أفضل سيناريو لاستخدام برنامج خبيث ضمن حملة متقدمة"
 #     }]
 # }]
-
+#
 DEFAULT_PROMPTS = [{
     "label": "🛡️ Cyber Attack Scenarios",
     "children": [{
