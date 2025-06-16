@@ -11,7 +11,7 @@ class ModelInput(BaseModel):
 import t2speechmuit
 import stateasg
 import chatasg
-
+import lahjamodel
 import audio_interface
 import testc
 from aival import process_validator_request
@@ -49,6 +49,7 @@ app = gr.mount_gradio_app(app, t2speechmuit.demo, path='/t2speechmuit')
 app = gr.mount_gradio_app(app, testc.demo, path='/testc')
 app = gr.mount_gradio_app(app, stateasg.demo, path='/stateasg')
 app = gr.mount_gradio_app(app, chatasg.demo, path='/asg')
+app = gr.mount_gradio_app(app, lahjamodel.demo, path='/lahja')
 
 app = gr.mount_gradio_app(app, audio_interface.demo, path='/studio-pro')
 
