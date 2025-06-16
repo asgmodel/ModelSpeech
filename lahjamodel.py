@@ -223,7 +223,7 @@ with gr.Blocks() as demo, ms.Application(), antd.ConfigProvider():
         <footer class="bg-gray-50 py-6 border-t border-gray-200">
             <div class="container mx-auto px-4 text-center">
                 <p class="text-gray-500 text-sm">
-                    &copy; 2023 LAHJA AI. Advanced text-to-speech powered by VITS architecture and transformer models.
+                    &copy; 2025 LAHJA AI. Advanced text-to-speech powered by VITS architecture and transformer models.
                 </p>
             </div>
         </footer>
@@ -348,7 +348,6 @@ with gr.Blocks() as demo, ms.Application(), antd.ConfigProvider():
         });
     </script>
 
-    <p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank">DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=wasmdashai/mywap" style="color: #fff;text-decoration: underline;" target="_blank">Remix</a></p>
 </body>
 </html>
 
